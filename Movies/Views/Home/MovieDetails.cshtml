@@ -1,0 +1,104 @@
+@{
+    ViewData["Title"] = "Movie details";
+}
+
+<div>
+    
+    @if (ViewData["Movie"] == null)
+    {
+        <h3>Movie not found</h3>
+    }
+    else
+    {
+        var movie = (Movie) ViewData["Movie"];
+        
+        <h3>@movie.Title</h3>
+                        
+        <br/>
+        
+        <dl>
+            <dt>First paragraph</dt>
+            <dd>@movie.FirstParagraph</dd>
+            
+            <dt>Director</dt>
+            <dd>@movie.Director</dd>
+            
+            <dt>Producer</dt>
+            <dd>@movie.Producer</dd>
+            
+            <dt>Release Date</dt>
+            <dd>@movie.ReleaseDate</dd>
+            
+            <dt>Rating</dt>
+            <dd>@movie.Rating</dd>
+            
+        </dl>
+        
+        <hr/>
+        
+        <p>Please rate @movie.Title movie</p>
+                                    
+        <form method="post" enctype="multipart/form-data" asp-controller="Home" asp-action="RateMovie">
+               <input id="1" 
+                      name="rate" 
+                      type="radio"
+                      aria-label="1"
+                      value="1" />
+               <label for="1">1</label>&nbsp;
+               <input id="2" 
+                      name="rate" 
+                      type="radio" 
+                      value="2" />
+               <label for="2">2</label>&nbsp;
+               <input id="3" 
+                      name="rate" 
+                      type="radio" 
+                      value="3" />
+               <label for="3">3</label>&nbsp;
+               <input id="4" 
+                      name="rate" 
+                      type="radio" 
+                      value="4" />
+               <label for="4">4</label>&nbsp;
+               <input id="5" 
+                      name="rate" 
+                      type="radio" 
+                      value="5" 
+                      checked/>
+               <label for="5">5</label>&nbsp;
+               <input id="6" 
+                      name="rate" 
+                      type="radio" 
+                      value="6" />
+               <label for="6">6</label>&nbsp;
+               <input id="7" 
+                      name="rate" 
+                      type="radio" 
+                      value="7" />
+               <label for="7">7</label>&nbsp;
+               <input id="8" 
+                      name="rate" 
+                      type="radio" 
+                      value="8" />
+               <label for="8">8</label>&nbsp;
+               <input id="9" 
+                      name="rate" 
+                      type="radio" 
+                      value="9" />
+               <label for="9">9</label>&nbsp;
+               <input id="10" 
+                      name="rate" 
+                      type="radio" 
+                      value="10"/>
+               <label for="10">10</label>&nbsp;
+               
+               <input type="hidden" name="title" value="@movie.Title"/>
+               
+               <br/>
+               
+            <input type="submit" value="Rate movie"/>
+        </form>
+    }
+    
+    
+</div>

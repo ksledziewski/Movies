@@ -1,0 +1,23 @@
+﻿@{
+    ViewData["Title"] = "Movies";
+}
+
+<div>
+    <h3>Please select a movie:</h3>
+    
+    <br/>
+    
+    <ul>
+        
+        
+        @foreach (var movie in (IEnumerable<Movie>) ViewData["Movies"])
+        {
+            <li>
+                @movie.Title
+                <a href="/Home/MovieDetails/@movie.Title"> Details </a>
+            </li>
+            
+        }
+    </ul>
+    
+</div>
